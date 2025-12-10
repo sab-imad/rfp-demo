@@ -108,10 +108,7 @@ export function Chat() {
   };
 
   return (
-    <Card className="flex flex-col h-[70vh]">
-      <CardHeader>
-        <CardTitle>Chat with your AI</CardTitle>
-      </CardHeader>
+    <Card className="flex flex-col h-[80vh]">
       <CardContent className="flex-grow overflow-y-auto">
         <div className="space-y-4">
           {messages.map((message, index) => (
