@@ -128,12 +128,12 @@ export default function FormsPage() {
       <TabsContent value="all-forms">
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {forms.map((form: any) => (
-            <Card key={form.id} className="flex flex-col justify-between h-56">
+            <Card key={form.id} className="flex flex-col">
               <CardHeader className="flex-grow">
                 <CardTitle>{form.title}</CardTitle>
                 <CardDescription>{form.description}</CardDescription>
               </CardHeader>
-              <CardFooter className="flex justify-between">
+              <CardFooter className="flex flex-wrap gap-2 flex-grow items-end">
                 <FormModal form={form}>
                   <Button>View Form</Button>
                 </FormModal>
