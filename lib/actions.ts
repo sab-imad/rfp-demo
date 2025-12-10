@@ -87,3 +87,15 @@ export async function deleteResponse(formId: string, responseId: string) {
     return { error: "Failed to delete response" };
   }
 }
+
+export async function askQuestion(prompt: string) {
+  try {
+    const response = await axios.post(config.api.chat, {
+      prompt,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return { error: "Failed to get response" };
+  }
+}
