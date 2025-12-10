@@ -34,7 +34,7 @@ import {
 
 export default function FormsPage() {
   const [prompt, setPrompt] = useState("");
-  const [forms, setForms] = useState([]);
+  const [forms, setForms] = useState<any[]>([]);
   const [selectedForm, setSelectedForm] = useState<any>(null);
   const [responses, setResponses] = useState([]);
   const [activeTab, setActiveTab] = useState("generate");
