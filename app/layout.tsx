@@ -6,7 +6,7 @@ import { Sidebar } from "@/components/Sidebar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Symphonize",
+  title: "Department of Rural Development, Government of Andhra Pradesh",
   description: "AI-powered form generation",
 };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 
@@ -23,7 +24,12 @@ export function Sidebar() {
       <div className="flex h-full max-h-screen flex-col gap-2">
         <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6">
           <Link href="/" className="flex items-center gap-2 font-semibold">
-            <span className="">Symphonize</span>
+            <Image
+              src="/andhra-pradesh-state--emblem-seeklogo.svg"
+              alt="Government of Andhra Pradesh"
+              width={150}
+              height={150}
+            />
           </Link>
         </div>
         <div className="flex-1">
