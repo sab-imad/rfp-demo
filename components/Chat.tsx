@@ -27,7 +27,7 @@ export function Chat() {
   return (
     <Card className="flex flex-col h-[70vh]">
       <CardHeader>
-        <CardTitle>Chat with your data</CardTitle>
+        <CardTitle>Chat with your AI</CardTitle>
       </CardHeader>
       <CardContent className="flex-grow overflow-y-auto">
         <div className="space-y-4">

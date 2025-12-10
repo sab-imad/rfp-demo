@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getResponses } from "@/lib/actions";
+import { getResponses, getFormById } from "@/lib/actions";
 import { FormModal } from "@/components/FormModal";
 
 export default function SurveyResponsesPage({
@@ -18,6 +18,7 @@ export default function SurveyResponsesPage({
   params: { formId: string };
 }) {
   const [responses, setResponses] = useState([]);
+  const [form, setForm] = useState(null);
 
   useEffect(() => {
     const fetchResponses = async () => {
@@ -26,7 +27,14 @@ export default function SurveyResponsesPage({
         setResponses(allResponses);
       }
     };
+    const fetchForm = async () => {
+      const formData = await getFormById(params.formId);
+      if (formData && !formData.error) {
+        setForm(formData);
+      }
+    };
     fetchResponses();
+    fetchForm();
   }, [params.formId]);
 
   return (
@@ -37,9 +45,11 @@ export default function SurveyResponsesPage({
             <CardTitle>Response {response.id}</CardTitle>
           </CardHeader>
           <CardFooter>
-            <FormModal responseId={response.id}>
-              <Button>View Response</Button>
-            </FormModal>
+            {form && (
+              <FormModal form={form} responseId={response.id}>
+                <Button>View Response</Button>
+              </FormModal>
+            )}
           </CardFooter>
         </Card>
       ))}

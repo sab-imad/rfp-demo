@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -20,12 +19,12 @@ export default function AdminPage() {
           </CardHeader>
         </Card>
       </Link>
-      <Link href="/admin/survey-result">
+      <Link href="/admin/analytics">
         <Card>
           <CardHeader>
-            <CardTitle>Survey Result</CardTitle>
+            <CardTitle>Analytics</CardTitle>
             <CardDescription>
-              View and analyze survey results.
+              View and analyze form data.
             </CardDescription>
           </CardHeader>
         </Card>

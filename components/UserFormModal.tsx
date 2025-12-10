@@ -26,6 +26,7 @@ import { submitForm } from "@/lib/actions";
 
 export function UserFormModal({ form, children }: { form: any; children: React.ReactNode }) {
   const [answers, setAnswers] = useState<any>({});
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleInputChange = (fieldId: string, value: any) => {
     setAnswers({ ...answers, [fieldId]: value });
@@ -41,7 +42,10 @@ export function UserFormModal({ form, children }: { form: any; children: React.R
         value,
       })),
     };
-    await submitForm(payload);
+    const result = await submitForm(payload);
+    if (result && !result.error) {
+      setIsOpen(false);
+    }
   };
 
   const renderField = (field: any) => {
@@ -101,7 +105,7 @@ export function UserFormModal({ form, children }: { form: any; children: React.R
   const formId = `form-${form.id}`;
 
   return (
-    <Dialog>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent className="w-full max-w-2xl h-[90vh] flex flex-col">
         <DialogHeader>
