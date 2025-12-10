@@ -68,6 +68,16 @@ export async function getResponses(formId: string) {
   }
 }
 
+export async function getAllResponses() {
+  try {
+    const response = await axios.get(config.api.getAllResponses);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    return { error: "Failed to fetch responses" };
+  }
+}
+
 export async function getResponseById(responseId: string) {
   try {
     const response = await axios.get(config.api.getResponseById(responseId));

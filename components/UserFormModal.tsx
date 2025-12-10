@@ -24,6 +24,44 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Button } from "@/components/ui/button";
 import { submitForm } from "@/lib/actions";
 
+const districts = [
+  "Alluri Sitarama Raju",
+  "Anakapalli",
+  "Anantapur",
+  "Annamayya",
+  "Bapatla",
+  "Chittoor",
+  "Dr. B.R. Ambedkar Konaseema",
+  "East Godavari",
+  "Eluru",
+  "Guntur",
+  "Kadapa",
+  "Kakinada",
+  "Krishna",
+  "Kuppam",
+  "Manyam",
+  "Nandyal",
+  "Nellore",
+  "NTR",
+  "Palnadu",
+  "Prakasam",
+  "Sri Sathya Sai",
+  "Srikakulam",
+  "Tirupati",
+  "Visakhapatnam",
+  "Vizianagaram",
+  "West Godavari",
+];
+
+const generateRandomUsername = () => {
+  const adjectives = ["happy", "sad", "big", "small", "fast", "slow"];
+  const nouns = ["cat", "dog", "house", "car", "tree", "sun"];
+  const adjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+  const noun = nouns[Math.floor(Math.random() * nouns.length)];
+  const number = Math.floor(Math.random() * 100);
+  return `${adjective}-${noun}-${number}`;
+};
+
 export function UserFormModal({ form, children }: { form: any; children: React.ReactNode }) {
   const [answers, setAnswers] = useState<any>({});
   const [isOpen, setIsOpen] = useState(false);
@@ -37,6 +75,8 @@ export function UserFormModal({ form, children }: { form: any; children: React.R
     const payload = {
       form_id: form.id,
       user_id: crypto.randomUUID(),
+      district: districts[Math.floor(Math.random() * districts.length)],
+      username: generateRandomUsername(),
       answers: Object.entries(answers).map(([field_id, value]) => ({
         field_id,
         value,

@@ -11,6 +11,7 @@ export const config = {
         webhookId: WebHookId,
         getByIdOrDelete: `${API_BASE_URL}/${WebHookId}/forms`,
         getResponses: (formId: string) => `${API_BASE_URL}/752ea7e4-6eb5-4da4-9197-9877e550673d/forms/${formId}/responses`,
+        getAllResponses: `${API_BASE_URL}/forms/responses`,
         getResponseById: (responseId: string) => `${API_BASE_URL}/5a4d20b5-1e70-4d47-be28-576abfc5c963/forms/responses/${responseId}`,
         deleteResponseById: (formId: string, responseId: string) => `${API_BASE_URL}/5a4d20b5-1e70-4d47-be28-576abfc5c963/forms/${formId}/responses/${responseId}`,
         chat: `${API_BASE_URL}/admin/chat`
